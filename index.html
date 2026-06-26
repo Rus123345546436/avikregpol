@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Game Predictor Poland</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    .console-box {
+      font-family: monospace;
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px #00ff88;
+      color: #00ff88;
+      height: 250px;
+      overflow-y: auto;
+    }
+    .loading-screen {
+      font-family: monospace;
+      background: #000;
+      color: #00ff88;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      z-index: 50;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .hidden-screen { display: none; }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+
+  <div id="loading" class="loading-screen">
+    <p>Ładowanie systemu AI... proszę czekać.</p>
+  </div>
+
+  <div id="mainContent" class="hidden-screen">
+
+    <header class="w-full bg-gray-800 p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-green-400">Vavada AI Predictor Poland</h1>
+      <nav class="space-x-4">
+        <a href="#how" class="hover:text-green-400">Jak to działa</a>
+        <a href="#games" class="hover:text-green-400">Gry</a>
+        <a href="#start" class="hover:text-green-400">Start</a>
+      </nav>
+    </header>
+
+    <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">
+        Zarabiaj z AI analizą gier
+      </h2>
+
+      <p class="max-w-xl mb-8 text-gray-300">
+        Dołącz do użytkowników w Polsce korzystających z AI do gier takich jak Aviator, Mines i Penalty.
+        Analiza w czasie rzeczywistym i szybkie wypłaty w PLN.
+      </p>
+
+      <button id="startButton"
+        class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl text-lg transition">
+        Rozpocznij teraz
+      </button>
+
+      <div id="errorBox" class="hidden bg-red-600 p-6 rounded-xl max-w-md mx-auto mt-6">
+        <h2 class="text-xl font-bold mb-2">⚠️ Konto nie znalezione</h2>
+        <p class="mb-4">
+          Aby uzyskać dostęp do predykcji, zarejestruj konto i dokonaj pierwszej wpłaty.
+        </p>
+
+        <a href="https://standarttrack.com/?promo=983eb7d4-6826-42a9-a980-1bf1f16b995d&target=register"
+           target="_blank"
+           class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg transition">
+          Zarejestruj się w Vavada
+        </a>
+      </div>
+    </section>
+
+    <section class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">
+        Dzisiejsi najlepsi gracze (PLN)
+      </h3>
+
+      <div class="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto text-sm text-green-300">
+        <p>👤 User ID: 1128473422 – 87 412 PLN</p>
+        <p>👤 User ID: 9912384741 – 76 580 PLN</p>
+        <p>👤 User ID: 3099234822 – 65 940 PLN</p>
+        <p>👤 User ID: 1187339121 – 54 870 PLN</p>
+        <p>👤 User ID: 4412900113 – 74 130 PLN</p>
+        <p>👤 User ID: 8283721091 – 83 960 PLN</p>
+        <p>👤 User ID: 7751937742 – 53 000 PLN</p>
+        <p>👤 User ID: 5554921811 – 32 910 PLN</p>
+        <p>👤 User ID: 1983238742 – 92 480 PLN</p>
+        <p>👤 User ID: 3377749301 – 32 270 PLN</p>
+      </div>
+    </section>
+
+    <section id="games" class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Obsługiwane gry</h3>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🎮 Aviator</h4>
+          <p class="text-gray-300">AI analizuje momenty wypłaty w czasie rzeczywistym.</p>
+        </div>
+
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">💣 Mines</h4>
+          <p class="text-gray-300">Minimalizacja ryzyka i analiza bezpiecznych pól.</p>
+        </div>
+
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🥅 Penalty</h4>
+          <p class="text-gray-300">Analiza ruchów bramkarza i strzelca.</p>
+        </div>
+
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🐔 Chicken Road</h4>
+          <p class="text-gray-300">Predykcja bezpiecznych ruchów w grze.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="how" class="bg-gray-900 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Jak to działa</h3>
+      <div class="max-w-3xl mx-auto space-y-4 text-gray-300">
+        <p>📡 AI analizuje dane z gier 24/7</p>
+        <p>💡 Wykrywa wzorce i trendy</p>
+        <p>📲 Dostajesz sygnały w czasie rzeczywistym</p>
+      </div>
+    </section>
+
+    <section class="bg-black py-12 px-6 text-center">
+      <h3 class="text-xl font-bold text-green-400 mb-4">Console log</h3>
+      <div class="console-box max-w-3xl mx-auto text-left">
+        <p>[INFO] System AI aktywny ✅</p>
+        <p>[OK] Połączenie z Vavada established</p>
+      </div>
+    </section>
+
+    <footer class="text-center text-gray-500 text-sm py-6">
+      © 2025 AI Predictor Poland. For entertainment purposes only.
+    </footer>
+
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("loading").classList.add("hidden-screen");
+      document.getElementById("mainContent").classList.remove("hidden-screen");
+    }, 3000);
+
+    document.getElementById("startButton").addEventListener("click", () => {
+      document.getElementById("errorBox").classList.remove("hidden");
+    });
+  </script>
+
+</body>
+</html>
